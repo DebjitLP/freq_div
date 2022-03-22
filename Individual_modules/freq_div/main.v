@@ -8,7 +8,7 @@ input C1;
 
 //output clk
 output reg clockout;
-reg [3:0]num = 0;
+  reg [3:0]num = 4'b1111;
 
 always@(posedge clk)
 begin
@@ -20,18 +20,18 @@ begin
     //Frequency gets 1/8 th ofits original value
     begin
         clockout<=num[2];
-        num <= num+1;
+        num <= num-1;
     end
     else if (rst==1)
     begin
         clockout<=0;
-        num<=0;
+        num<=4'b1111;
     end
   end
   else
   begin
       clockout<=0;
-      num<=0;
+      num<=4'b1111;
   end
 end
 
